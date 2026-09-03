@@ -294,7 +294,7 @@ def _run_one_bs(
         recv_wts,
         recv_idx,
         expert_mask=expert_mask,
-        activation=ActivationType.Silu,
+        activation=ActivationType.Situv2,
         gate_mode=GateMode.SEPARATED.value,
         quant_type=QuantType.per_1x32,
         w1_scale=w1_s,
@@ -328,7 +328,7 @@ def _run_one_bs(
             recv_wts[:total_recv],
             recv_idx[:total_recv],
             expert_mask=expert_mask,
-            activation=ActivationType.Silu,
+            activation=ActivationType.Situv2,
         )
         rel_l2 = float(
             torch.linalg.vector_norm((moe_out[:total_recv] - ref_moe_out).float())
@@ -404,7 +404,7 @@ def _run_one_bs(
             recv_wts,
             recv_idx,
             expert_mask=expert_mask,
-            activation=ActivationType.Silu,
+            activation=ActivationType.Situv2,
             gate_mode=GateMode.SEPARATED.value,
             quant_type=QuantType.per_1x32,
             w1_scale=w1_s,
